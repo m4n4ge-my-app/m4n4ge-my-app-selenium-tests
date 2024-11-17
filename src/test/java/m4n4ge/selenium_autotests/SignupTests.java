@@ -30,8 +30,12 @@ public class SignupTests extends BaseTest {
 
         signupPage.signup("John","Doe", "JD@test.com", "Testing123!", "Testing123!");
         Assert.assertTrue(dashboardPage.isLoaded());
-        
+    }
+    
+    @Test(dependsOnMethods = "testUserSignup")
+    public void testLogout() {
         dashboardPage.logout();
+        Assert.assertTrue(landingPage.isLoaded());
     }
 
 }
