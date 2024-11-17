@@ -3,6 +3,7 @@ package m4n4ge.selenium_autotests.pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class LandingPage extends BasePage {
 
@@ -19,5 +20,11 @@ public class LandingPage extends BasePage {
 
     public void clickSignUpButton() {
         this.signUpButton.click();
+    }
+    
+    @Override
+    public boolean isLoaded() {
+        this.wait.until(ExpectedConditions.visibilityOf(this.signUpButton));
+        return this.signUpButton.isDisplayed();
     }
 }

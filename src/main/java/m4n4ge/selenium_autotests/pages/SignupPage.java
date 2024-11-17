@@ -3,6 +3,7 @@ package m4n4ge.selenium_autotests.pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class SignupPage extends BasePage {
 
@@ -38,4 +39,11 @@ public class SignupPage extends BasePage {
 		this.confirmPasswordField.sendKeys(confirmPassword);
 		this.signUpButton.click();
 	}
+	
+	@Override
+    public boolean isLoaded() {
+        this.wait.until(ExpectedConditions.visibilityOf(this.firstNameField));
+        return this.firstNameField.isDisplayed();
+    }
+
 }
