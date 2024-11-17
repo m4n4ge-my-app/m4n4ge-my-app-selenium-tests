@@ -7,6 +7,7 @@ import org.testng.annotations.Test;
 import m4n4ge.selenium_autotests.pages.DashboardPage;
 import m4n4ge.selenium_autotests.pages.LandingPage;
 import m4n4ge.selenium_autotests.pages.SignupPage;
+import m4n4ge.selenium_autotests.utils.JsonUtil;
 
 
 public class SignupTests extends BaseTest {
@@ -27,14 +28,25 @@ public class SignupTests extends BaseTest {
         this.dashboardPage = new DashboardPage(driver);
     }
     
+//    @BeforeTest
+//    @Parameters({"firstName", "lastName", "email", "password", "confirmPassword"})
+//    public void setupUserDetails(String firstName, String lastName, String email, String password, String confirmPassword) {
+//    	this.firstName = firstName;
+//    	this.lastName = lastName;
+//    	this.email = email;
+//    	this.password = password;
+//    	this.confirmPassword = confirmPassword;
+//    	
+//    }
+    
     @BeforeTest
-    @Parameters({"firstName", "lastName", "email", "password", "confirmPassword"})
-    public void setupUserDetails(String firstName, String lastName, String email, String password, String confirmPassword) {
-    	this.firstName = firstName;
-    	this.lastName = lastName;
-    	this.email = email;
-    	this.password = password;
-    	this.confirmPassword = confirmPassword;
+    public void setupUserDetails() {
+    	UserData userDetails = JsonUtil.getTestData("m4n4ge.selenium_autotests.resources/test-data/alice.json");
+    	this.firstName = userDetails.firstName();
+    	this.lastName = userDetails.lastName();
+    	this.email = userDetails.email();
+    	this.password = userDetails.password();
+    	this.confirmPassword = userDetails.confirmPassword();
     	
     }
 
