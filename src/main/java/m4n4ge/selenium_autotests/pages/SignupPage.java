@@ -22,7 +22,7 @@ public class SignupPage extends BasePage {
 	@FindBy(name = "confirmPassword")
 	private WebElement confirmPasswordField;
 
-	@FindBy(linkText = "Sign Up")
+	@FindBy(xpath = "//button[text()='Sign Up']")
 	private WebElement signUpButton;
 
 	

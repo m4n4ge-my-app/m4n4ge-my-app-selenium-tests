@@ -7,7 +7,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class LandingPage extends BasePage {
 
-    @FindBy(linkText = "Sign Up")
+	@FindBy(xpath = "//button[text()='Sign Up']")
     private WebElement signUpButton;
 
     public LandingPage(WebDriver driver) {
