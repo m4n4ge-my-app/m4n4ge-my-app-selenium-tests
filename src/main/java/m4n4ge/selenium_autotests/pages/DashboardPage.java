@@ -28,7 +28,7 @@ public class DashboardPage extends BasePage {
 
 	@Override
 	public boolean isLoaded() {
-		this.wait.until(ExpectedConditions.visibilityOf(this.logoutLink));
-		return this.logoutLink.isDisplayed();
+		this.wait.until(ExpectedConditions.visibilityOf(this.dashboardLink));
+		return this.dashboardLink.isDisplayed();
 	}
 }
