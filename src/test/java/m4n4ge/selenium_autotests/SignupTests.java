@@ -2,6 +2,7 @@ package m4n4ge.selenium_autotests;
 
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import m4n4ge.selenium_autotests.pages.DashboardPage;
 import m4n4ge.selenium_autotests.pages.LandingPage;
@@ -12,12 +13,29 @@ public class SignupTests extends BaseTest {
 	private LandingPage landingPage;
     private SignupPage signupPage;
     private DashboardPage dashboardPage;
+    private String firstName;
+    private String lastName;
+    private String email;
+    private String password;
+    private String confirmPassword;
+    
 
     @BeforeTest
     public void setupPages() {
         this.landingPage = new LandingPage(driver);
         this.signupPage = new SignupPage(driver);
         this.dashboardPage = new DashboardPage(driver);
+    }
+    
+    @BeforeTest
+    @Parameters({"firstName", "lastName", "email", "password", "confirmPassword"})
+    public void setupUserDetails(String firstName, String lastName, String email, String password, String confirmPassword) {
+    	this.firstName = firstName;
+    	this.lastName = lastName;
+    	this.email = email;
+    	this.password = password;
+    	this.confirmPassword = confirmPassword;
+    	
     }
 
     @Test
@@ -28,7 +46,7 @@ public class SignupTests extends BaseTest {
         landingPage.clickSignUpButton();
         Assert.assertTrue(signupPage.isLoaded());
 
-        signupPage.signup("John","Doe", "JD@test.com", "Testing123!", "Testing123!");
+        signupPage.signup(firstName, lastName, email, password, confirmPassword);
         Assert.assertTrue(dashboardPage.isLoaded());
     }
     
