@@ -1,25 +1,13 @@
 package m4n4ge.selenium_autotests;
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-import io.github.bonigarcia.wdm.WebDriverManager;
 import m4n4ge.selenium_autotests.pages.DashboardPage;
 import m4n4ge.selenium_autotests.pages.LandingPage;
 import m4n4ge.selenium_autotests.pages.SignupPage;
 
 
-public class SignupTests {
-	private WebDriver driver;
-
-    @BeforeTest
-    public void setupDriver() {
-        WebDriverManager.chromedriver().setup();
-        this.driver = new ChromeDriver();
-    }
+public class SignupTests extends BaseTest {
 
     @Test
     public void testUserSignup() {
@@ -41,8 +29,4 @@ public class SignupTests {
         dashboardPage.logout();
     }
 
-    @AfterTest
-    public void closeDriver() {
-        this.driver.quit();
-    }
 }
