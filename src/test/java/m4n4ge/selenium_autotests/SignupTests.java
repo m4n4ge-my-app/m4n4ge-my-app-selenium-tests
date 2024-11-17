@@ -20,7 +20,7 @@ public class SignupTests extends BaseTest {
     private String password;
     private String confirmPassword;
     
-
+    
     @BeforeTest
     public void setupPages() {
         this.landingPage = new LandingPage(driver);
@@ -28,20 +28,11 @@ public class SignupTests extends BaseTest {
         this.dashboardPage = new DashboardPage(driver);
     }
     
-//    @BeforeTest
-//    @Parameters({"firstName", "lastName", "email", "password", "confirmPassword"})
-//    public void setupUserDetails(String firstName, String lastName, String email, String password, String confirmPassword) {
-//    	this.firstName = firstName;
-//    	this.lastName = lastName;
-//    	this.email = email;
-//    	this.password = password;
-//    	this.confirmPassword = confirmPassword;
-//    	
-//    }
     
     @BeforeTest
-    public void setupUserDetails() {
-    	UserData userDetails = JsonUtil.getTestData("m4n4ge.selenium_autotests.resources/test-data/alice.json");
+    @Parameters({"filePath"})
+    public void setupUserDetails(String filePath) {
+    	UserData userDetails = JsonUtil.getTestData(filePath);
     	this.firstName = userDetails.firstName();
     	this.lastName = userDetails.lastName();
     	this.email = userDetails.email();

@@ -1,0 +1,22 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="multi-user-signup-test" verbose="1">
+	<test name="user-alice">
+		<parameter name="filePath" value="m4n4ge.selenium_autotests.resources/test-data/alice.json" />
+		<classes>
+			<class name="m4n4ge.selenium_autotests.SignupTests" />
+		</classes>
+	</test>
+	<test name="user-james">
+		<parameter name="filePath" value="m4n4ge.selenium_autotests.resources/test-data/james.json" />
+		<classes>
+			<class name="m4n4ge.selenium_autotests.SignupTests" />
+		</classes>
+	</test>
+	<test name="user-sophia">
+		<parameter name="filePath" value="m4n4ge.selenium_autotests.resources/test-data/sophia.json" />
+		<classes>
+			<class name="m4n4ge.selenium_autotests.SignupTests" />
+		</classes>
+	</test>
+</suite>
