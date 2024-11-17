@@ -37,6 +37,8 @@ public class SignupTests {
 
         DashboardPage dashboardPage = new DashboardPage(driver);
         Assert.assertTrue(dashboardPage.isLoaded());
+        
+        dashboardPage.logout();
     }
 
     @AfterTest
