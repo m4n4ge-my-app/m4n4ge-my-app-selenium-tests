@@ -4,8 +4,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class SignupPage extends BasePage {
+	
+	private static final Logger logger = LoggerFactory.getLogger(SignupPage.class);
 
 	@FindBy(name = "firstName")
 	private WebElement firstNameField;
@@ -32,6 +36,7 @@ public class SignupPage extends BasePage {
 
 
 	public void signup(String firstName, String lastName, String email, String password, String confirmPassword) {
+		logger.info("User details: firstName={}, lastName={}, email={}, password={}, confirmPassword={}", firstName, lastName, email, password, confirmPassword);
 		this.firstNameField.sendKeys(firstName);
 		this.lastNameField.sendKeys(lastName);
 		this.emailField.sendKeys(email);
